@@ -43,8 +43,8 @@ const PersonForm = props => {
         let message = "";
         if (!value) {
             message = "Name is required!"
-        } else if (value.length < 3) {
-            message = "Name must be 3 characters or longer!"
+        } else if (value.length < 2) {
+            message = "Name must be 2 characters or longer!"
         }
         setErrors({ ...errors, name: message });
     }
@@ -76,7 +76,7 @@ const PersonForm = props => {
         let message = "";
         if (!value) {
             message = "Please Confirm your Password!"
-        } else if (value === password) {
+        } else if (value == password) {
             message = "This should be identecal to your Password!"
         }
         setErrors({ ...errors, conpassword2: message });
@@ -113,7 +113,7 @@ const PersonForm = props => {
                 </div>
                 <div className="form-group">
                     {
-                        first_name.length >= 3 && last_name.length >= 3 && email.length >= 5 && password.length >= 8 && conpassword.length >= 8 ?
+                        first_name.length >= 2 && last_name.length >= 2 && email.length >= 5 && password.length >= 8 && conpassword.length >= 8 ?
                             <input type="submit" value="Register" className="btn btn-primary btn-block" /> :
                             <input type="submit" value="Register" className="btn btn-primary btn-block" disabled />
                     }</div>
