@@ -76,7 +76,7 @@ const PersonForm = props => {
         let message = "";
         if (!value) {
             message = "Please Confirm your Password!"
-        } else if (value == password) {
+        } else if (value !== password) {
             message = "This should be identecal to your Password!"
         }
         setErrors({ ...errors, conpassword2: message });
@@ -113,9 +113,9 @@ const PersonForm = props => {
                 </div>
                 <div className="form-group">
                     {
-                        first_name.length >= 2 && last_name.length >= 2 && email.length >= 5 && password.length >= 8 && conpassword.length >= 8 ?
-                            <input type="submit" value="Register" className="btn btn-primary btn-block" /> :
-                            <input type="submit" value="Register" className="btn btn-primary btn-block" disabled />
+                    first_name.length >= 2 && last_name.length >= 2 && email.length >= 5 && password.length >= 8 && conpassword === password ?
+                    <input type="submit" value="Submit" className="btn btn-outline-success btn-block" /> :
+                    <input type="submit" value="Submit" className="btn btn-outline-success btn-block" disabled/>
                     }</div>
             </form>
         </div>
